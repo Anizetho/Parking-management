@@ -1,25 +1,30 @@
-//import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.junit.jupiter.api.Test;
-import java.util.Map;
-import java.util.Set;
-import java.util.HashMap;
-import static org.junit.Assert.*;
-import org.junit.Test;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package DD4L;
 
-public class UnitTest {
-  Sensors sensors;	
+import java.util.HashMap;
+import java.util.Map;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+
+public class ProgramTest {
+  Sensors sensors;
   Parking parking;
   Map<String,Boolean> hash = new HashMap<String, Boolean>();
 
   @Test
-  void test1(){
+  public void test1(){
 	  sensors=new Sensors(0);
 	  sensors.addName("Place 21");
-////	assertEquals("Place 21 doit être initialisé à false", sensors.getState("Place 21"), false);
+	  assertEquals(sensors.getState("Place 21"), false);
 	  sensors=null;
   }
   @Test
-  void test2() {
+  public void test2() {
 	  sensors = new Sensors(1);
 	  hash = new HashMap<String, Boolean>();
 	  hash.put("Place 1", false);
@@ -27,7 +32,7 @@ public class UnitTest {
 	  sensors=null;
   }
   @Test
-  void test3() {
+  public void test3() {
 	  sensors = new Sensors(1);
 	  hash = new HashMap<String, Boolean>();
 	  hash.put("Place 1", true);
@@ -37,7 +42,7 @@ public class UnitTest {
 	  hash=null;
   }
   @Test
-  void test4() {
+  public void test4() {
 	  sensors = new Sensors(4);
 	  hash = new HashMap<String, Boolean>();
 	  hash.put("Place 1", false);
@@ -49,16 +54,16 @@ public class UnitTest {
 	  hash=null;
   }
   @Test
-  void test5(){
+  public void test5(){
 	sensors = new Sensors(6);
 	parking=new Parking();
 	parking.update(sensors.getChange());
-	assertEquals("Le nombre de place libre est de 6", parking.numberFreeSpaces(), 6);
+	assertEquals(parking.numberFreeSpaces(), 6);
 	sensors=null;
 	parking=null;
   }
   @Test
-  void test6(){
+  public void test6(){
 	parking=new Parking();
 	parking.setCode("test");
 	assertEquals(parking.checkCode(), true);
