@@ -1,0 +1,77 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+
+\usepackage{PersonalPackage}
+
+\begin{document}
+\title{Rapport Test Driven Development\\Reprise de projet}
+\author{Albert Emile 14022\\Anizet Thomas 14164\\Lekens Amaury 14027\\Selleslagh Tom 14164\\Wéry Benoit 14256}
+\maketitle
+
+\section{\'Etat de développement}
+\begin{itemize}
+\item \textbf{Classe \textit{Sensor\\}
+Un capteur donne l'état d'une place de parking (prise : \textit{true} et libre : \textit{false}})\\
+
+Le constructeur de la classe créé un dictionnaire clé-valeur avec le nom du capteur et son état - A l'initialisation tout les capteurs sont à \textit{false}\\
+
+Les fonctions supplémentaires permettent de récupérer l'état d'un ou plusieurs capteurs ainsi que de créer des places supplémentaires
+
+\item \textbf{Classe Parking\\}
+Cette classe instancie un objet parking représenté qui possède plusieurs fonctions (gestion de la barrière, des codes d'ouverture et mise à jour du nombre de place \\
+
+Le point de la relation entre le parking et la classe \textit{sensor} est que le pattern observateur n'est pas utilisé dans sa fonction première. En effet, l'observable (le \textit{sensor}) ne transmet pas son état à l'observateur (le parking). Le résultat est une mise à jour brute de l'ensemble des états des places sous l'impulsion du parking (\textit{polling})
+
+\item \textit{Tests unitaires}
+Les tests unitaires sont implémenté correctement mais sont peu claires et peu commentés
+\end{itemize}
+
+\subsection{Critique}
+Selon nous, le \textit{pattern} observateur n'est pas exploité ici. Cette sous exploitation implique une mise à jour brute de l'ensemble des états des places sous l'impulsion du parking\\
+
+Notre vision (et l'implémentation qui va en résulter) est un abonnement de l'observateur à son observable. Si l'état d'un capteur change, celui-ci va notifier son observateur qui mettra à jour le nombre de place libre. (voir diagramme de classe)
+
+\subsection{Amélioration}
+\begin{itemize}
+\item Ajout d'une classe \textbf{Zone} qui sera l'observateur
+
+\item Sensor devient l'observable
+
+\item la classe \textbf{parking} prend le rôle de gestionnaire. 
+
+\item Pas de base de donnée. le programmme sera de type Super-Loop mettant à jour l'état au démarrage en parcourant les capteurs.
+
+\item Crée un code pour simuler un parking de base
+
+\item Inversion de true et false : une place libre est à true 
+\end{itemize}
+
+\section{Analyse de qualité}
+La qualité du code repris n'est pas évaluable selon les termes prévu car si les métriques sont expliqués et listé, aucune valeur n'est visée pour ces derniers. Avant de continuer le projet, il est donc nécessaire de fixer des valeurs pour les différents métriques prévus par le groupe précédent
+
+\section{Plan de travail}
+06.12.17 - Description du projet - Critique et première idée
+08.12.17 - Réunion Objectifs
+
+\begin{enumerate}
+\item Repenser la classe Sensor - Amaury \& Benoit\\
+Pattern Observateur 
+
+\item Repenser les critères de qualité - Emile\\
+Les métriques sont expliqués mais pas de critère
+
+\item Code de simulation du parking Tom - Emile\\
+
+\item Etoffer et vérifier les conventions de codages - Everybody
+
+\item Clarifier et étoffer tests unitaires - Tom - Emile\\
+
+\item Jenkins - Thomas 
+\end{enumerate}
+\end{document}
