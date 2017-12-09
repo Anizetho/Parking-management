@@ -55,7 +55,4 @@ public class Parking{
         return false;
     }
 
-}
-
-
-  
+}  
