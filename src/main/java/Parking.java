@@ -1,5 +1,6 @@
 import java.util.List;
 
+
 public class Parking{
 
     private List<Sensor> sensors;
