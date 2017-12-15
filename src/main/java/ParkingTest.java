@@ -39,12 +39,30 @@ class ParkingTest {
 
     @Test
     void addZone() {
-        assertEquals(false,false);
+        List<Zone> listZone = parking.getZones();
+        int initialSize = listZone.size();
+
+        parking.addZone(zone);
+
+        // Check that if when removeZone is used the list zone is decremented
+        assertEquals(initialSize + 1, parking.getZones().size());
+
+        // Check that the name of the zone deleted is no more containing in the zone list
+        assertEquals(true, parking.getZones().contains(zone));
     }
 
     @Test
     void removeZone() {
-        assertEquals(false,false);
+        List<Zone> listZone = parking.getZones();
+        int initialSize = listZone.size();
+
+        parking.removeZone(zone);
+
+        // Check that if when removeZone is used the list zone is decremented
+        assertEquals(initialSize - 1, parking.getZones().size());
+
+        // Check that the name of the zone deleted is no more containing in the zone list
+        assertEquals(false, parking.getZones().contains(zone));
     }
 
     @Test

@@ -32,7 +32,7 @@ public class Parking{
      *@pre -
      * @post -
      */
-    public void addZone(){
+    public void addZone(Zone zone){
 
     }
 
@@ -41,7 +41,7 @@ public class Parking{
      *@pre -
      * @post -
      */
-    public void removeZone(){
+    public void removeZone(Zone zone){
 
     }
 
