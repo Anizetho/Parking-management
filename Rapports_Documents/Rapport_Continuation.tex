@@ -183,6 +183,25 @@ int supportsIpv6OnIos = 6;
 	\end{lstlisting}
 \end{itemize}
 
+\newpage
+\section{Jenkins}
+\subsection{Concept d'intégration continue}
+L'Intégration Continue (IC) est un outil permettant de suivre l'état de santé d’un projet. Dès qu’un changement est détecté dans le code, cet outil compile et teste l’application. Il surveille la qualité du code ainsi que les métriques. Si une erreur survient durant le test, les développeurs sont directement avertis de façon à corriger le problème. \\
+Ainsi, dès lors qu’on emploie des processus de déploiement automatisés, l’intégration continue permet de s’assurer d’un code fonctionnel en temps réel, facilitant la livraison de l’application pour le client. 
+
+\subsection{Jenkins}
+Jenkins est un outil d'Intégration Continue open source écrit en Java. Son interface utilisateur, intuitive, rend plus aisé la compréhension de l’outil.
+Des centaines d'extensions open source sont disponibles : les outils de gestion de configuration, les outils de build, les métriques de qualité de code, les annonceurs de build, l'intégration avec des systèmes externes, … 
+
+\subsubsection{Checkstyle}
+Checkstyle est un outil d’analyse statique pour Java. Il permet de respecter un ensemble de normes de codage hautement configurable, de vérifier les mauvaises pratiques de codage, ainsi que le code trop complexe ou dupliqué. Checkstyle supporte un très grand nombre de règles, incluant celles liées aux normes de nommage, annotations, commentaires javadoc, ... \\
+Un point intéressant au sujet de Checkstyle est la facilité avec laquelle on peut le configurer. Nous pouvons choisir entre les normes de codage de Sun (par défaut) ou bien adapter ces normes selon nos besoins. Dans notre cas, nous sommes parti des normes de codage de Sun et les avons modifiées à nos besoins.
+
+\subsubsection{FindBugs}
+FindBugs est un puissant outil d’analyse de code qui vérifie le byte code de l’application afin de trouver des bogues potentiels, des problèmes de performances, ou des mauvaises habitudes de codage. FindBugs peut détecter des problèmes assez importants tels que des exceptions de pointeurs nuls, des boucles infinies. Contrairement à beaucoup d’autres outils d’analyse statique, FindBugs tend à trouver un plus petit nombre de problèmes, mais de ces problèmes, une grande partie sera importante.
+
+
+\newpage
 \section{Architecture de l'application}
 
 \end{document}

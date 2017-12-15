@@ -6,23 +6,15 @@ import java.util.List;
  */
 public class Sensor {
 
-<<<<<<< HEAD
     private static int globalId = 0;
     private int id;
-=======
-    private static int globalId;
-    private int sensorId;
->>>>>>> 59c6aba937a6a2463f325eec8ac998abc310da90
     private String location;
     private List<Observer> observers;
     private boolean state;
 
     public Sensor(){
-<<<<<<< HEAD
         this.id = ++globalId;
-=======
-        this.sensorId = ++globalId;
->>>>>>> 59c6aba937a6a2463f325eec8ac998abc310da90
+
     }
 
     /***** Pattern Observer methods *****/
