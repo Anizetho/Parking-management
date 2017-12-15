@@ -76,4 +76,7 @@ public class Sensor {
 
     }
 
+    public List<Observer> getObservers() {
+        return observers;
+    }
 }

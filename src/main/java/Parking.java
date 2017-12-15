@@ -14,8 +14,8 @@ public class Parking{
      *@pre -
      * @post -
      */
-    public void addSensor(){
-        Sensor sensor = new Sensor();
+    public void addSensor(Sensor sensor){
+        Sensor sensorAdded = new Sensor();
     }
 
 
@@ -55,4 +55,11 @@ public class Parking{
         return false;
     }
 
-}  
+    public List<Sensor> getSensors() {
+        return sensors;
+    }
+
+    public List<Zone> getZones() {
+        return zones;
+    }
+}

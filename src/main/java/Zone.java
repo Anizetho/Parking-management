@@ -37,4 +37,8 @@ public class Zone extends Observer{
     public int getFreeSpace(){
         return 0;
     }
+
+    public int getID(){
+        return ID;
+    }
 }
