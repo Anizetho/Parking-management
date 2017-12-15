@@ -1,0 +1,188 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+
+\usepackage{PersonalPackage}
+
+\usepackage{titling}
+\def\@subtitle{no title}
+\newcommand	{\subtitle}[1]{\def\@subtitle{#1}}
+
+\title{Rapport Test Driven Development}
+\subtitle{Continuation de projet}
+
+\author{
+ALBERT Emile 14022@ecam.be\\\\
+ANIZET Thomas 14164@ecam.be\\\\
+LEKENS Amaury 14027@ecam.be\\\\
+SELLESLAGH Tom 14164@ecam.be\\\\
+W\'ERY Benoit 14256@ecam.be
+}
+
+\begin{document}
+\begin{titlepage} 
+	\hspace{0.5cm}	
+	\rule{1.5pt}{\textheight} 
+	\hspace{1.5cm}		
+	\parbox[b]{13cm}
+	{  		
+		{\huge \thetitle}\\[1\baselineskip]
+		{\LARGE \@subtitle} \\[1\baselineskip]
+		\today \\[3\baselineskip]
+		
+		{\Large \theauthor}\\[22\baselineskip]
+		\hspace*{6cm}\includegraphics[scale=0.3]{logo_ECAM.png}
+					
+	}
+\end{titlepage}
+
+\section{Métrique - Qualité structurelle du code}
+\subsection*{Ligne de Code \textit{SLOC}}  
+\begin{itemize}
+\item Ligne physiques  : Présentes dans le fichier  
+\item Lignes logiques  : Effectivement exécutées  
+\end{itemize}
+
+\subsection*{Densité des commentaires par rapport aux lignes de code DC}
+\begin{itemize}
+\item DC = CLOC/SLOC   
+\item CLOC: Comment Line Of Code –  Nombre de lignes de commentaires  
+\item SLOC: Source Line Of Code –  Nombre de lignes de code   
+\end{itemize}
+
+\subsection*{Couverture de code}
+\begin{itemize}
+\item Proportion de code couverte par des tests  
+\end{itemize}
+
+\subsection*{Duplication de code}  
+
+\subsection*{Couplage}  
+\begin{itemize}
+\item Couplage efférent "Ce"  : Nombre références vers classe mesurée  
+\item Couplage afférent "Ca"  : Nombre types que la classe connait  
+\end{itemize}
+
+\subsection*{Instabilité}
+\begin{itemize}
+\item Résistance d'un module au changement  
+\begin{equation}
+\frac{C_{e}}{C_{e} + C_{a}}
+\end{equation}
+\end{itemize}
+
+\subsection*{Lack of Cohesion of Methods}  
+\begin{itemize}
+\item Manque de cohésion des méthodes  
+\begin{equation}
+LCOM = 1 -  \frac{\sum_{F} MF}{M*F}
+\end{equation}
+Où M  est le nombre méthodes, F est le nombre champs d'instance et MF  est le nombre de méthodes appelant un champ donné  
+\end{itemize}
+
+\subsection*{Nombre d’éléments}  
+\begin{itemize}
+\item Nombre d'éléments dans une classe
+\begin{itemize}
+\item Paramètres $\leq$ 5 
+\item Variables $\leq$ 8 
+\item Surcharges $\leq$ 6  
+\end{itemize}
+\end{itemize}
+
+\subsection*{Conclusion}
+Interprétation pour évaluer (selon la norme ISO 9126) la qualité structurelle et fonctionnelle  de notre code selon plusieurs critères
+
+\subsubsection*{Qualité structurelle}
+\begin{itemize}
+\item La performance
+Quantité de ressources utilisées (moyens matériels, temps, personnel), et la quantité de résultats délivrés. En font partie le temps de réponse, le débit et l'extensibilité - capacité à maintenir la performance même en cas d'utilisation intensive
+
+\item La maintenabilité\\
+Effort nécessaire à corriger ou transformer le logiciel. En font partie l'extensibilité, c'est-à-dire le peu d'effort nécessaire pour y ajouter de nouvelles fonctions ;
+
+\item La portabilité\\
+Aptitude d'un logiciel de fonctionner dans un environnement matériel ou logiciel différent de son environnement initial. En font partie la facilité d'installation et de configuration dans le nouvel environnement.
+\end{itemize}
+
+\subsubsection*{Qualité logicielle}
+\begin{itemize}
+\item La capacité fonctionnelle\\
+La capacité qu'ont les fonctionnalités d'un logiciel à répondre aux exigences et besoins explicites ou implicites des usagers. En font partie la précision, l'interopérabilité, la conformité aux normes et la sécurité 
+
+\item La facilité d'utilisation\\
+Effort nécessaire pour apprendre à manipuler le logiciel. En font partie la facilité de compréhension, d'apprentissage et d'exploitation et la robustesse - une utilisation incorrecte n'entraîne pas de dysfonctionnement 
+
+\item La fiabilité\\
+Capacité d'un logiciel de rendre des résultats corrects quelles que soient les conditions d'exploitation. En font partie la tolérance aux pannes - la capacité d'un logiciel de fonctionner même en étant handicapé par la panne d'un composant (logiciel ou matériel) 
+\end{itemize}
+
+\newpage
+\section{Convention de codage}
+Les conventions de codage ont été légèrement revue par rapport aux conventions décidées par le groupe précédent. En effet, par nos modifications, nous avons souhaité formaliser l'aspect général du code (emplacement et forme des commentaires) 
+\subsection{Nom de classe}
+\begin{itemize}
+\item UpperCamelcase
+\begin{lstlisting}
+public class XmlHttpRequest(){}
+\end{lstlisting}
+\end{itemize}
+
+\subsection{Nom méthode}
+\begin{itemize}
+\item lowerCamelcase
+\begin{lstlisting}
+public void supportsIpv6OnIos(){}
+\end{lstlisting}
+\end{itemize}  
+
+\subsection{Constante}
+\begin{itemize}
+\item CONSTANT\_CASE = ... tout est écrit en majuscule
+\end{itemize}  
+
+\subsection{Nom variable}
+\begin{itemize}
+\item lowerCamelcase
+\begin{lstlisting}
+int supportsIpv6OnIos = 6;
+\end{lstlisting}
+\end{itemize}  
+
+\subsection{Variable/Objet nouvelle classe}
+\begin{itemize}
+\item A name in the form used for classes followed by the capital letter.  
+\end{itemize}
+
+\subsection{Indentation}
+\begin{itemize}
+\item 4 espaces
+\end{itemize}   
+
+\subsection{Nombre de caractère par ligne maximum}  
+\begin{itemize}
+\item 100
+\end{itemize}  
+
+\subsection{Commentaires}
+\begin{itemize}
+\item Les commentaires en anglais se trouvent toujours au dessus du code concerné et suivent le format ci-dessous:
+	\begin{lstlisting}
+	Comment on one line:
+	 /*	...	*/
+	 
+	Comment on several lines:
+	/* ...
+	 * ...
+	 */
+	\end{lstlisting}
+\end{itemize}
+
+\section{Architecture de l'application}
+
+\end{document}
