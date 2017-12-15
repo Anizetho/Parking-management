@@ -3,12 +3,15 @@ import java.util.List;
 
 public class Sensor {
 
-    public static int ID = 0;
+    private static int GLOBAL_ID;
+    private int id;
+    private String location;
     private List<Observer> observers;
     private boolean state;
 
     public Sensor(){
-
+        this.id = id;
+        this.location = location;
     }
 
     /***** Pattern Observer methods *****/
@@ -18,7 +21,7 @@ public class Sensor {
 	 *@post -
 	 */
     public void addObserver(Observer obs){
-
+        this.observers.add(obs);
     }
 
 
@@ -69,4 +72,5 @@ public class Sensor {
     public void setState(boolean state){
 
     }
+
 }

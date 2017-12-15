@@ -15,7 +15,7 @@ public class Parking{
      * @post -
      */
     public void addSensor(){
-
+        Sensor sensor = new Sensor();
     }
 
 
