@@ -1,10 +1,10 @@
 public class Zone extends Observer{
 
-    private static int ID;
+    private int id;
     public int freeSpaces;
 
-    public Zone(){
-
+    public Zone(int id){
+        this.id = id;
     }
 
 
@@ -15,26 +15,30 @@ public class Zone extends Observer{
      *@post -
      */
     public void update(boolean sensorState){
-
+        if (sensorState){
+            this.freeSpaces -= 1;
+        }
+        else {
+            this.freeSpaces +=1;
+        }
     }
 
 
     /***** Methods *****/
-
-    /*
-     *@pre -
-     * @post -
-     */
-    public void addFreeSpace(){
-
-    }
-
-
     /*
      *@pre -
      * @post -
      */
     public int getFreeSpace(){
-        return 0;
+        return this.freeSpaces;
+    }
+
+
+    /*
+     *@pre -
+     * @post -
+     */
+    public int getId(){
+        return this.id;
     }
 }

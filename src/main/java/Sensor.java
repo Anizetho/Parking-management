@@ -6,14 +6,23 @@ import java.util.List;
  */
 public class Sensor {
 
+<<<<<<< HEAD
+    private static int globalId = 0;
+    private int id;
+=======
     private static int globalId;
     private int sensorId;
+>>>>>>> 59c6aba937a6a2463f325eec8ac998abc310da90
     private String location;
     private List<Observer> observers;
     private boolean state;
 
     public Sensor(){
+<<<<<<< HEAD
+        this.id = ++globalId;
+=======
         this.sensorId = ++globalId;
+>>>>>>> 59c6aba937a6a2463f325eec8ac998abc310da90
     }
 
     /***** Pattern Observer methods *****/
@@ -27,7 +36,6 @@ public class Sensor {
 
     }
 
-
     /*
      *@pre -
      *@post -
@@ -36,15 +44,15 @@ public class Sensor {
 
     }
 
-
     /*
      *@pre -
      *@post -
      */
     public void notifyObservers(){
-
+        for(int i = 0; i<observers.size(); i++){
+            observers.get(i).update(this.state);
+        }
     }
-
 
     /***** Methods *****/
 
@@ -53,27 +61,24 @@ public class Sensor {
 	 *@post -
 	 */
     public boolean getState() {
-        // A MODIFIER
-        return false;
+        return this.state;
     }
-
 
     /*
      *@pre -
      *@post -
      */
-    public int getID(){
-        // A MODIFIER
-        return 0;
+    public int getId(){
+        return this.id;
     }
-
 
     /*
      *@pre -
      *@post -
      */
     public void setState(boolean state){
-
+        this.state = state;
+        this.notifyObservers();
     }
 
 }
