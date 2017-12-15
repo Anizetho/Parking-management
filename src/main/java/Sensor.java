@@ -1,6 +1,9 @@
 import java.util.List;
 
 
+/**
+ *
+ */
 public class Sensor {
 
     public static int ID = 0;
@@ -18,7 +21,7 @@ public class Sensor {
 	 *@post -
 	 */
     public void addObserver(Observer obs){
-
+        int a = 0;
     }
 
 
