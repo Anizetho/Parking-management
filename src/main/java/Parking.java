@@ -15,7 +15,7 @@ public class Parking{
      * @post -
      */
     public void addSensor(){
-
+        Sensor sensor = new Sensor();
     }
 
 
@@ -54,5 +54,5 @@ public class Parking{
         // A MODIFIER
         return false;
     }
-}
-  
+
+}  
