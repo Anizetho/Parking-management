@@ -1,49 +1,84 @@
-import org.junit.jupiter.api.Test;
-
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
-import static org.junit.jupiter.api.Assertions.*;
 
-class SensorTest {
-    Sensor sensor = new Sensor();
-    Zone zone = new Zone();
+/**
+ *
+ */
+public class Sensor {
 
-    @Test
-    void addObserver() {
-        List<Observer> listObserver = sensor.getObservers();
-        int initialSize = listObserver.size();
+<<<<<<< HEAD
+    private static int globalId = 0;
+    private int id;
+=======
+    private static int globalId;
+    private int sensorId;
+>>>>>>> 59c6aba937a6a2463f325eec8ac998abc310da90
+    private String location;
+    private List<Observer> observers;
+    private boolean state;
 
-        sensor.addObserver(zone);
-
-        // Check if the size of observers list is incremented when addObserver is used
-        assertEquals(initialSize + 1, sensor.getObservers().size());
-
-        // Check if added observer is containing in observers list
-        assertEquals(true, sensor.getObservers().contains(zone));
+    public Sensor(){
+<<<<<<< HEAD
+        this.id = ++globalId;
+=======
+        this.sensorId = ++globalId;
+>>>>>>> 59c6aba937a6a2463f325eec8ac998abc310da90
     }
 
+    /***** Pattern Observer methods *****/
 
-    @Test
-    void removeObserver(){
-        List<Observer> listObserver = sensor.getObservers();
-        int initialSize = listObserver.size();
-
-        sensor.removeObserver(zone);
-
-        // Check if the size of observers list is incremented when addObserver is used
-        assertEquals(initialSize - 1, sensor.getObservers().size());
-
-        // Check if added observer is containing in observers list
-        assertEquals(false, sensor.getObservers().contains(zone));
+	/*
+	 *@pre -
+	 *@post -
+	 */
+    public void addObserver(Observer obs){
+        this.observers.add(obs);
 
     }
 
-    @Test
-    void notifyObservers() {
-        assertEquals(false, false);
+    /*
+     *@pre -
+     *@post -
+     */
+    public void removeObserver(Observer obs){
+
+    }
+
+    /*
+     *@pre -
+     *@post -
+     */
+    public void notifyObservers(){
+        for(int i = 0; i<observers.size(); i++){
+            observers.get(i).update(this.state);
+        }
+    }
+
+    /***** Methods *****/
+
+	/*
+	 *@pre -
+	 *@post -
+	 */
+    public boolean getState() {
+        return this.state;
+    }
+
+    /*
+     *@pre -
+     *@post -
+     */
+    public int getId(){
+        return this.id;
+    }
+
+    /*
+     *@pre -
+     *@post -
+     */
+    public void setState(boolean state){
+        this.state = state;
+        this.notifyObservers();
     }
 
 }
