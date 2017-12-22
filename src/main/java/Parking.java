@@ -68,4 +68,9 @@ public class Parking{
         return false;
     }*/
 
-}  
+
+
+    public java.util.List<Sensor> getSensors() {
+        return sensors;
+    }
+}

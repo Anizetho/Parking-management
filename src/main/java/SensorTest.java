@@ -1,6 +1,10 @@
+import org.junit.jupiter.api.Test;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+
 class SensorTest {
     Sensor sensor = new Sensor();
-    Zone zone = new Zone();
+    Zone zone = new Zone(0);
 
     @Test
     void addObserver() {

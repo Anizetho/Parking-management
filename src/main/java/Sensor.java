@@ -73,4 +73,7 @@ public class Sensor {
         this.notifyObservers();
     }
 
+    public List<Observer> getObservers() {
+        return observers;
+    }
 }
