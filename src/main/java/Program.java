@@ -14,7 +14,7 @@ public class Program {
         show, change, sensor, free, exit
 	}
 
-	public static Parking myParking = new Parking();
+	private static Parking myParking = new Parking();
 
 	public static boolean simulator() {
 		System.out.print("ParkingCMD > ");
@@ -25,16 +25,16 @@ public class Program {
 			Cmd cmd = Cmd.valueOf(parts[0]);
 			switch (cmd) {
 				case show:
-					myParking.getParkingState();
+                    getMyParking().getParkingState();
 					break;
 				case change:
-					myParking.getSensors().get(Integer.parseInt(parts[1]) - 1).switchState();
+                    getMyParking().getSensors().get(Integer.parseInt(parts[1]) - 1).switchState();
 					break;
 				case sensor:
-					System.out.println(myParking.getSensorState(Integer.parseInt(parts[1]) - 1));
+					System.out.println(getMyParking().getSensorState(Integer.parseInt(parts[1]) - 1));
 					break;
 				case free:
-					for (Zone zone : myParking.getZones()) {
+					for (Zone zone : getMyParking().getZones()) {
 						System.out.println(zone.getId() + " " + zone.getFreeSpace());
 					}
 					break;
@@ -73,7 +73,11 @@ public class Program {
 	    return park;
 	}
 
-	public static void main(String [] args) {
+    public static Parking getMyParking() {
+        return myParking;
+    }
+
+    public static void main(String [] args) {
 		myParking = init();
 		while (simulator());
 	}
