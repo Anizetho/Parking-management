@@ -1,9 +1,9 @@
 public class Zone extends Observer{
 
-    private int id;
+    public String id;
     public int freeSpaces;
 
-    public Zone(int id){
+    public Zone(String id){
         this.id = id;
     }
 
@@ -38,7 +38,7 @@ public class Zone extends Observer{
      *@pre -
      * @post -
      */
-    public int getId(){
+    public String getId(){
         return this.id;
     }
 }

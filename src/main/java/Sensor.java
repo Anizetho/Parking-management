@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -9,7 +10,7 @@ public class Sensor {
     private static int globalId = 0;
     private int id;
     private String location;
-    private List<Observer> observers;
+    private List<Observer> observers = new ArrayList<Observer>();
     private boolean state;
 
     public Sensor(){
@@ -25,7 +26,6 @@ public class Sensor {
 	 */
     public void addObserver(Observer obs){
         this.observers.add(obs);
-
     }
 
     /*
@@ -68,8 +68,8 @@ public class Sensor {
      *@pre -
      *@post -
      */
-    public void setState(boolean state){
-        this.state = state;
+    public void switchState(){
+        this.state = !this.state;
         this.notifyObservers();
     }
 

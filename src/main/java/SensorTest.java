@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SensorTest {
     Sensor sensor = new Sensor();
-    Zone zone = new Zone(0);
+    Zone zone = new Zone("Test");
 
     @Test
     void addObserver() {

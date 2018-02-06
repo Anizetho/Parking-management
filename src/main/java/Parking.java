@@ -1,34 +1,28 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Parking{
 
-    private List<Sensor> sensors;
-    private List<Zone> zones;
+    private ArrayList<Sensor> sensors = new ArrayList<Sensor>();
+    public List<Zone> zones = new ArrayList<Zone>();
 
     public Parking(){ }
-
 
     /*
      *@pre -
      * @post -
      */
-    public boolean addSensor(List<Integer> idZone){
+    public boolean addSensor(String zone_to_add){
         Sensor sensor = new Sensor();
-        for(int i = 0; i < idZone.size(); i++ ){
-            boolean found = false;
-            for(int j = 0; j < zones.size(); j++){
-                if (idZone.get(i) == zones.get(j).getId()){
-                    sensor.addObserver(zones.get(j));
-                    found = true;
-                }
-            }
-            if(!found){
-                return false;
+        for (Zone zone : zones){
+            if (zone.id == zone_to_add) {
+                sensor.addObserver(zone);
+                sensors.add(sensor);
+                sensor.notifyObservers();
+                return true;
             }
         }
-        sensors.add(sensor);
-        sensor.notifyObservers();
-        return true;
+        return false;
     }
 
 
@@ -45,9 +39,9 @@ public class Parking{
      *@pre -
      * @post -
      */
-    public void addZone(int id){
-        this.zones.add(new Zone(id));
-    }
+    public void addZone(String id){
+        zones.add(new Zone(id));
+;    }
 
 
     /*
@@ -70,7 +64,11 @@ public class Parking{
 
 
 
-    public java.util.List<Sensor> getSensors() {
+    public ArrayList<Sensor> getSensors() {
         return sensors;
+    }
+
+    public java.util.List<Zone> getZones() {
+        return zones;
     }
 }
