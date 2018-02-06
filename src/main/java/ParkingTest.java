@@ -9,6 +9,7 @@ class ParkingTest {
     Parking parking = new Parking();
     Zone zone = new Zone("Test");
 
+    /*
     @Test
     void addSensor() {
         List<Sensor> listSensor = parking.getSensors();
@@ -26,7 +27,7 @@ class ParkingTest {
         assertEquals(true, parking.getSensors().contains(sensor));
     }
 
-    /*
+
     @Test
     void removeSensor() {
         List<Sensor> listSensor = parking.getSensors();
