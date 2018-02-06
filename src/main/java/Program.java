@@ -42,8 +42,7 @@ public class Program {
 					return false;
 				}
 			}
-		}
-		catch(Exception e){
+		} catch(Exception e){
 			System.out.println("no option");
 		}
 		return true;
@@ -54,12 +53,10 @@ public class Program {
 			InputStream input = new FileInputStream(filename);
 			try {
 				return  new ObjectMapper().readValue(input, HashMap.class);
-			}
-			catch(IOException b){
+			} catch(IOException b){
 				System.out.println("Json to hash map conversion Failed");
 			}
-		}
-		catch(FileNotFoundException e) {
+		} catch(FileNotFoundException e) {
 			System.out.println("Json File Not Found");
 		}
 		return new HashMap<String,List<Integer>>();
