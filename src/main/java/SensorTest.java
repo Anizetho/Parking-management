@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SensorTest {
     Sensor sensor = new Sensor();
-    Zone zone = new Zone(0);
+    Zone zone = new Zone("Test");
 
     @Test
     void addObserver() {
@@ -24,11 +24,11 @@ class SensorTest {
     @Test
     void removeObserver(){
         List<Observer> listObserver = sensor.getObservers();
+        sensor.addObserver(zone);
         int initialSize = listObserver.size();
 
         sensor.removeObserver(zone);
-
-        // Check if the size of observers list is incremented when addObserver is used
+        // Check if the size of observers list is decremented when removeObserver is used
         assertEquals(initialSize - 1, sensor.getObservers().size());
 
         // Check if added observer is containing in observers list

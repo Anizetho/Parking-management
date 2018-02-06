@@ -1,76 +1,73 @@
+import java.util.ArrayList;
 import java.util.List;
 
-public class Parking{
+public class Parking {
 
-    private List<Sensor> sensors;
-    private List<Zone> zones;
+    private List<Sensor> sensors = new ArrayList<Sensor>();
+    private List<Zone> zones = new ArrayList<Zone>();
 
-    public Parking(){ }
-
-
-    /*
-     *@pre -
-     * @post -
-     */
-    public boolean addSensor(List<Integer> idZone){
-        Sensor sensor = new Sensor();
-        for(int i = 0; i < idZone.size(); i++ ){
-            boolean found = false;
-            for(int j = 0; j < zones.size(); j++){
-                if (idZone.get(i) == zones.get(j).getId()){
-                    sensor.addObserver(zones.get(j));
-                    found = true;
-                }
-            }
-            if(!found){
-                return false;
-            }
-        }
-        sensors.add(sensor);
-        sensor.notifyObservers();
-        return true;
+    public Parking() {
     }
 
+    public boolean addSensor(String zoneToAdd) {
+        Sensor sensor = new Sensor();
+        for (Zone zone : this.zones) {
+            if (zone.id == zoneToAdd) {
+                sensor.addObserver(zone);
+                this.sensors.add(sensor);
+                return true;
+            }
+        }
+        return false;
+    }
 
-    /*
-     *@pre -
-     * @post -
-     */
-    /*public void removeSensor(int id){
+    public void removeSensor(int id) {
+        for (Sensor sensor : this.sensors) {
+            if (sensor.getId() == id) {
+                this.sensors.remove(sensor);
+            }
+        }
+    }
 
-    }*/
-
-
-    /*
-     *@pre -
-     * @post -
-     */
-    public void addZone(int id){
+    public void addZone(String id) {
         this.zones.add(new Zone(id));
     }
 
 
-    /*
-     *@pre -
-     * @post -
-     */
-    /*public void removeZone(){
-
-    }*/
-
-
-    /*
-     *@pre -
-     * @post -
-     */
-    /*public boolean getSensorState(int id){
-        // A MODIFIER
-        return false;
-    }*/
+    public void removeZone(String id) {
+        for (Zone zone: this.zones) {
+            if (zone.getId() == id) {
+                this.zones.remove(zone);
+            }
+        }
+    }
 
 
+    public boolean getSensorState(int id) {
 
-    public java.util.List<Sensor> getSensors() {
-        return sensors;
+        return this.sensors.get(id).getState();
+    }
+
+
+    public void getParkingState() {
+        for (Zone zone : this.zones) {
+            System.out.println(zone.getId());
+            for (Sensor sensor : this.sensors) {
+                if (sensor.getObservers().contains(zone)) {
+                    System.out.println(sensor.getId() + " " + sensor.getState());
+                }
+            }
+        }
+    }
+
+
+    public List<Sensor> getSensors() {
+
+        return this.sensors;
+    }
+
+    public List<Zone> getZones() {
+
+        return this.zones;
     }
 }

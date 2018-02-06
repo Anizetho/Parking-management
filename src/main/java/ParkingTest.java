@@ -7,8 +7,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class ParkingTest {
     Sensor sensor = new Sensor();
     Parking parking = new Parking();
-    Zone zone = new Zone(0);
+    Zone zone = new Zone("Test");
 
+    /*
     @Test
     void addSensor() {
         List<Sensor> listSensor = parking.getSensors();
@@ -17,7 +18,7 @@ class ParkingTest {
         List<Integer> listZone = new ArrayList<Integer>();
         listZone.add(1);
 
-        parking.addSensor(listZone);
+        //parking.addSensor(listZone);
 
         // Check if the size of sensor list is incremented when addSensor is used
         assertEquals(initialSize + 1, parking.getSensors().size());
@@ -26,7 +27,7 @@ class ParkingTest {
         assertEquals(true, parking.getSensors().contains(sensor));
     }
 
-    /*
+
     @Test
     void removeSensor() {
         List<Sensor> listSensor = parking.getSensors();
