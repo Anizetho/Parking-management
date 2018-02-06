@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a6982147-2bf6-4ee6-9c72-6170c02f93af" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Program.java" afterPath="$PROJECT_DIR$/src/main/java/Program.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Observable.java" afterPath="$PROJECT_DIR$/src/main/java/Observable.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Observer.java" afterPath="$PROJECT_DIR$/src/main/java/Observer.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -71,8 +72,8 @@
       <file leaf-file-name="Observable.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Observable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state relative-caret-position="30">
+              <caret line="2" column="3" lean-forward="true" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -100,11 +101,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Program.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Program.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Program.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="457">
-              <caret line="50" column="12" lean-forward="false" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
+            <state relative-caret-position="37">
+              <caret line="22" column="44" lean-forward="true" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -129,11 +130,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Observer.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Observer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Observer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="1" />
+            <state relative-caret-position="135">
+              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -171,11 +172,12 @@
         <option value="$PROJECT_DIR$/src/main/java/SensorTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Parking.java" />
         <option value="$PROJECT_DIR$/src/main/java/target/Observable.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Observable.java" />
         <option value="$PROJECT_DIR$/src/main/java/Sensor.java" />
         <option value="$PROJECT_DIR$/src/main/java/Zone.java" />
         <option value="$PROJECT_DIR$/src/main/java/ParkingTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Program.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Observable.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Observer.java" />
       </list>
     </option>
   </component>
@@ -469,7 +471,7 @@
       <workItem from="1517822669277" duration="142000" />
       <workItem from="1517822909999" duration="16087000" />
       <workItem from="1517923578172" duration="2435000" />
-      <workItem from="1517926652356" duration="957000" />
+      <workItem from="1517926652356" duration="1152000" />
     </task>
     <servers />
   </component>
@@ -506,7 +508,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32616000" />
+    <option name="totallyTimeSpent" value="32811000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1346" y="174" width="1132" height="1133" extended-state="0" />
@@ -985,22 +987,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Observer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Observable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Sensor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1082,11 +1068,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Program.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="50" column="12" lean-forward="false" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
+        <state relative-caret-position="37">
+          <caret line="22" column="44" lean-forward="true" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Observable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="3" lean-forward="true" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Observer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
