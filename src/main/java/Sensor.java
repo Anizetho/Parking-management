@@ -17,11 +17,13 @@ public class Sensor extends Observable{
     /***** Pattern Observer methods *****/
     public void addObserver(Observer obs){
         this.observers.add(obs);
+        this.notifyObservers();
     }
 
 
     public void removeObserver(Observer obs){
         this.observers.remove(obs);
+        obs.update(false);
     }
 
 

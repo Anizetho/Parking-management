@@ -1,15 +1,20 @@
-public class Zone extends Observer{
+/**
+ *Zone is the Observer.
+ *Use to get freeSpace into the area.
+ */
+public class Zone extends Observer {
     public String id;
     private int freeSpaces;
 
-    public Zone(String id){
+    public Zone(String id) {
         this.id = id;
     }
 
-
-    /***** Pattern Observer method *****/
-    public void update(boolean sensorState){
-        if (!sensorState){
+    /**
+     *Design Pattern Method.
+     */
+    public void update(boolean sensorState) {
+        if (!sensorState) {
             this.freeSpaces -= 1;
         }
         else {
@@ -17,8 +22,9 @@ public class Zone extends Observer{
         }
     }
 
-
-    /***** Methods *****/
+    /**
+     *Method to access to the data.
+     */
     public int getFreeSpace(){
         return this.freeSpaces;
     }
