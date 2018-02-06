@@ -9,9 +9,8 @@ public class Sensor {
 
     private static int globalId = 0;
     private int id;
-    private String location;
     private List<Observer> observers = new ArrayList<Observer>();
-    private boolean state;
+    private boolean state = true;
 
     public Sensor(){
         this.id = ++globalId;
@@ -33,7 +32,7 @@ public class Sensor {
      *@post -
      */
     public void removeObserver(Observer obs){
-
+        this.observers.remove(obs);
     }
 
     /*

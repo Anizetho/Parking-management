@@ -11,7 +11,7 @@ import java.io.InputStream;
 
 public class Program {
 	enum Cmd {
-		show, change
+		show, change, sensor, free
 	}
 
 	public static Parking my_parking = new Parking();
@@ -25,14 +25,19 @@ public class Program {
 			Cmd cmd = Cmd.valueOf(parts[0]);
 			switch (cmd){
 				case show:
+					my_parking.getParkingState();
+					break;
+				case change:
+					my_parking.getSensors().get(Integer.parseInt(parts[1])-1).switchState();
+					break;
+				case sensor:
+					System.out.println(my_parking.getSensorState(Integer.parseInt(parts[1])));
+					break;
+				case free:
 					for (Zone zone : my_parking.getZones()){
 						System.out.println(zone.getId()+" "+zone.getFreeSpace());
 					}
 
-					break;
-				case change:
-					my_parking.getSensors().get(Integer.parseInt(parts[1])).switchState();
-					break;
 			}
 		}
 		catch(Exception e){

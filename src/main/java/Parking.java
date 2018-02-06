@@ -30,9 +30,13 @@ public class Parking{
      *@pre -
      * @post -
      */
-    /*public void removeSensor(int id){
-
-    }*/
+    public void removeSensor(int id){
+        for (Sensor sensor : sensors){
+            if (sensor.getId() == id){
+                sensors.remove(sensor);
+            }
+        }
+    }
 
 
     /*
@@ -48,20 +52,37 @@ public class Parking{
      *@pre -
      * @post -
      */
-    /*public void removeZone(){
-
-    }*/
+    public void removeZone(String id){
+        for (Zone zone: zones){
+            if (zone.getId() == id){
+                zones.remove(zone);
+            }
+        }
+    }
 
 
     /*
      *@pre -
      * @post -
      */
-    /*public boolean getSensorState(int id){
-        // A MODIFIER
-        return false;
-    }*/
+    public boolean getSensorState(int id){
+        return sensors.get(id).getState();
+    }
 
+    /*
+     *@pre -
+     * @post -
+     */
+    public void getParkingState(){
+        for (Zone zone : zones){
+            System.out.println(zone.getId());
+            for (Sensor sensor : sensors){
+                if (sensor.getObservers().contains(zone)){
+                    System.out.println(sensor.getId()+" "+sensor.getState());
+                }
+            }
+        }
+    }
 
 
     public ArrayList<Sensor> getSensors() {

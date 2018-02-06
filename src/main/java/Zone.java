@@ -1,5 +1,4 @@
 public class Zone extends Observer{
-
     public String id;
     public int freeSpaces;
 
@@ -9,13 +8,12 @@ public class Zone extends Observer{
 
 
     /***** Pattern Observer method *****/
-
     /*
      *@pre -
      *@post -
      */
     public void update(boolean sensorState){
-        if (sensorState){
+        if (!sensorState){
             this.freeSpaces -= 1;
         }
         else {
