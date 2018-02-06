@@ -1,0 +1,4 @@
+{
+  "ZoneA" : ["SensorA1","SensorA2","SensorA3"],
+  "ZoneB" : ["SensorB1","SensorB2","SensorB3"]
+}
