@@ -40,6 +40,8 @@ public class Program {
 					break;
 				case exit:
 					return false;
+                default:
+                    break;
 			}
 		} catch(Exception e) {
 			System.out.println("no option");
@@ -79,6 +81,6 @@ public class Program {
 
     public static void main(String [] args) {
 		myParking = init();
-		while (simulator());
+		while (simulator()) {}
 	}
 }
