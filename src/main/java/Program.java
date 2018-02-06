@@ -23,26 +23,25 @@ public class Program {
 		String[] parts = command.split(" ");
 		try {
 			Cmd cmd = Cmd.valueOf(parts[0]);
-			switch (cmd){
+			switch (cmd) {
 				case show:
 					myParking.getParkingState();
 					break;
 				case change:
-					myParking.getSensors().get(Integer.parseInt(parts[1])-1).switchState();
+					myParking.getSensors().get(Integer.parseInt(parts[1]) - 1).switchState();
 					break;
 				case sensor:
-					System.out.println(myParking.getSensorState(Integer.parseInt(parts[1])-1));
+					System.out.println(myParking.getSensorState(Integer.parseInt(parts[1]) - 1));
 					break;
 				case free:
-					for (Zone zone : myParking.getZones()){
-						System.out.println(zone.getId()+" "+zone.getFreeSpace());
+					for (Zone zone : myParking.getZones()) {
+						System.out.println(zone.getId() + " " + zone.getFreeSpace());
 					}
 					break;
-				case exit:{
+				case exit:
 					return false;
-				}
 			}
-		} catch(Exception e){
+		} catch(Exception e) {
 			System.out.println("no option");
 		}
 		return true;
@@ -76,8 +75,6 @@ public class Program {
 
 	public static void main(String [] args) {
 		myParking = init();
-		while(simulator()) {
-
-		}
+		while(simulator());
 	}
 }
