@@ -10,10 +10,10 @@ public class Parking {
 
     }
 
-    public boolean addSensor(String zone_to_add) {
+    public boolean addSensor(String zoneToAdd) {
         Sensor sensor = new Sensor();
-        for (Zone zone : this.zones){
-            if (zone.id == zone_to_add) {
+        for (Zone zone : this.zones) {
+            if (zone.id == zoneToAdd) {
                 sensor.addObserver(zone);
                 this.sensors.add(sensor);
                 return true;
@@ -23,8 +23,8 @@ public class Parking {
     }
 
     public void removeSensor(int id) {
-        for (Sensor sensor : this.sensors){
-            if (sensor.getId() == id){
+        for (Sensor sensor : this.sensors) {
+            if (sensor.getId() == id) {
                 this.sensors.remove(sensor);
             }
         }
@@ -32,30 +32,30 @@ public class Parking {
 
     public void addZone(String id) {
         this.zones.add(new Zone(id));
-;    }
+    }
 
 
     public void removeZone(String id) {
-        for (Zone zone: this.zones){
-            if (zone.getId() == id){
+        for (Zone zone: this.zones) {
+            if (zone.getId() == id) {
                 this.zones.remove(zone);
             }
         }
     }
 
 
-    public boolean getSensorState(int id){
+    public boolean getSensorState(int id) {
 
         return this.sensors.get(id).getState();
     }
 
 
-    public void getParkingState(){
-        for (Zone zone : this.zones){
+    public void getParkingState() {
+        for (Zone zone : this.zones) {
             System.out.println(zone.getId());
-            for (Sensor sensor : this.sensors){
-                if (sensor.getObservers().contains(zone)){
-                    System.out.println(sensor.getId()+" "+sensor.getState());
+            for (Sensor sensor : this.sensors) {
+                if (sensor.getObservers().contains(zone)) {
+                    System.out.println(sensor.getId() + " " + sensor.getState());
                 }
             }
         }
