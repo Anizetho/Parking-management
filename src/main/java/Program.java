@@ -11,12 +11,12 @@ import java.io.InputStream;
 
 public class Program {
 	enum Cmd {
-		show, change, sensor, free
+		show, change, sensor, free, exit
 	}
 
 	public static Parking myParking = new Parking();
 
-	public static void simulator() {
+	public static boolean simulator() {
 		System.out.print("ParkingCMD > ");
 		Scanner scanner = new Scanner(System.in);
 		String command = scanner.nextLine();
@@ -37,12 +37,15 @@ public class Program {
 					for (Zone zone : myParking.getZones()){
 						System.out.println(zone.getId()+" "+zone.getFreeSpace());
 					}
-
+				case exit:{
+					return false;
+				}
 			}
 		}
 		catch(Exception e){
 			System.out.println("no option");
 		}
+		return true;
 	}
 
 	public static HashMap<String,List<Integer>> jsonToHashMap(String filename){
@@ -75,8 +78,8 @@ public class Program {
 
 	public static void main(String [] args) {
 		myParking = init();
-		while(true) {
-		    simulator();
+		while(simulator()) {
+
 		}
 	}
 }
