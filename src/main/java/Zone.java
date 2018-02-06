@@ -1,6 +1,6 @@
 public class Zone extends Observer{
     public String id;
-    public int freeSpaces;
+    private int freeSpaces;
 
     public Zone(String id){
         this.id = id;
@@ -8,10 +8,6 @@ public class Zone extends Observer{
 
 
     /***** Pattern Observer method *****/
-    /*
-     *@pre -
-     *@post -
-     */
     public void update(boolean sensorState){
         if (!sensorState){
             this.freeSpaces -= 1;
@@ -23,19 +19,11 @@ public class Zone extends Observer{
 
 
     /***** Methods *****/
-    /*
-     *@pre -
-     * @post -
-     */
     public int getFreeSpace(){
         return this.freeSpaces;
     }
 
 
-    /*
-     *@pre -
-     * @post -
-     */
     public String getId(){
         return this.id;
     }

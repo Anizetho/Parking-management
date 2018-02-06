@@ -6,12 +6,10 @@ public class Parking{
     private List<Sensor> sensors = new ArrayList<Sensor>();
     private List<Zone> zones = new ArrayList<Zone>();
 
-    public Parking(){ }
+    public Parking(){
 
-    /*
-     *@pre -
-     * @post -
-     */
+    }
+
     public boolean addSensor(String zone_to_add){
         Sensor sensor = new Sensor();
         for (Zone zone : this.zones){
@@ -26,10 +24,7 @@ public class Parking{
     }
 
 
-    /*
-     *@pre -
-     * @post -
-     */
+
     public void removeSensor(int id){
         for (Sensor sensor : this.sensors){
             if (sensor.getId() == id){
@@ -39,19 +34,12 @@ public class Parking{
     }
 
 
-    /*
-     *@pre -
-     * @post -
-     */
     public void addZone(String id){
         this.zones.add(new Zone(id));
 ;    }
 
 
-    /*
-     *@pre -
-     * @post -
-     */
+
     public void removeZone(String id){
         for (Zone zone: this.zones){
             if (zone.getId() == id){
@@ -61,18 +49,12 @@ public class Parking{
     }
 
 
-    /*
-     *@pre -
-     * @post -
-     */
     public boolean getSensorState(int id){
+
         return this.sensors.get(id).getState();
     }
 
-    /*
-     *@pre -
-     * @post -
-     */
+
     public void getParkingState(){
         for (Zone zone : this.zones){
             System.out.println(zone.getId());
@@ -86,10 +68,12 @@ public class Parking{
 
 
     public List<Sensor> getSensors() {
+
         return this.sensors;
     }
 
     public List<Zone> getZones() {
+
         return this.zones;
     }
 }

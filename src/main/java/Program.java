@@ -37,6 +37,7 @@ public class Program {
 					for (Zone zone : myParking.getZones()){
 						System.out.println(zone.getId()+" "+zone.getFreeSpace());
 					}
+					break;
 				case exit:{
 					return false;
 				}
