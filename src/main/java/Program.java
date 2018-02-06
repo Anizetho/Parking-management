@@ -10,8 +10,8 @@ import java.io.InputStream;
 
 
 public class Program {
-	enum Cmd {
-		show, change, sensor, free, exit
+    enum Cmd {
+        show, change, sensor, free, exit
 	}
 
 	public static Parking myParking = new Parking();
@@ -47,26 +47,26 @@ public class Program {
 		return true;
 	}
 
-	public static HashMap<String,List<Integer>> jsonToHashMap(String filename){
+	public static HashMap<String, List<Integer>> jsonToHashMap(String filename) {
 		try {
 			InputStream input = new FileInputStream(filename);
 			try {
 				return  new ObjectMapper().readValue(input, HashMap.class);
-			} catch(IOException b){
+			} catch(IOException b) {
 				System.out.println("Json to hash map conversion Failed");
 			}
 		} catch(FileNotFoundException e) {
 			System.out.println("Json File Not Found");
 		}
-		return new HashMap<String,List<Integer>>();
+		return new HashMap<String, List<Integer>>();
 	}
 
-	public static Parking init(){
-		HashMap<String,List<Integer>> db = jsonToHashMap("src/Database.json");
+	public static Parking init() {
+		HashMap<String, List<Integer>> db = jsonToHashMap("src/Database.json");
 		Parking park = new Parking();
-		for(HashMap.Entry<String, List<Integer>> entry : db.entrySet()) {
+		for (HashMap.Entry<String, List<Integer>> entry : db.entrySet()) {
 			park.addZone(entry.getKey());
-			for(int sensor: entry.getValue()) {
+			for (int sensor: entry.getValue()) {
 			  park.addSensor(entry.getKey());
 			}
 		}
@@ -75,6 +75,6 @@ public class Program {
 
 	public static void main(String [] args) {
 		myParking = init();
-		while(simulator());
+		while (simulator());
 	}
 }
