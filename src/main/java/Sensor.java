@@ -41,7 +41,7 @@ public class Sensor {
      */
     public void notifyObservers(){
         for(int i = 0; i<observers.size(); i++){
-            observers.get(i).update(this.state);
+            this.observers.get(i).update(this.state);
         }
     }
 
@@ -73,6 +73,6 @@ public class Sensor {
     }
 
     public List<Observer> getObservers() {
-        return observers;
+        return this.observers;
     }
 }

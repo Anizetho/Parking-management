@@ -3,8 +3,8 @@ import java.util.List;
 
 public class Parking{
 
-    private ArrayList<Sensor> sensors = new ArrayList<Sensor>();
-    public List<Zone> zones = new ArrayList<Zone>();
+    private List<Sensor> sensors = new ArrayList<Sensor>();
+    private List<Zone> zones = new ArrayList<Zone>();
 
     public Parking(){ }
 
@@ -14,10 +14,10 @@ public class Parking{
      */
     public boolean addSensor(String zone_to_add){
         Sensor sensor = new Sensor();
-        for (Zone zone : zones){
+        for (Zone zone : this.zones){
             if (zone.id == zone_to_add) {
                 sensor.addObserver(zone);
-                sensors.add(sensor);
+                this.sensors.add(sensor);
                 sensor.notifyObservers();
                 return true;
             }
@@ -31,9 +31,9 @@ public class Parking{
      * @post -
      */
     public void removeSensor(int id){
-        for (Sensor sensor : sensors){
+        for (Sensor sensor : this.sensors){
             if (sensor.getId() == id){
-                sensors.remove(sensor);
+                this.sensors.remove(sensor);
             }
         }
     }
@@ -44,7 +44,7 @@ public class Parking{
      * @post -
      */
     public void addZone(String id){
-        zones.add(new Zone(id));
+        this.zones.add(new Zone(id));
 ;    }
 
 
@@ -53,9 +53,9 @@ public class Parking{
      * @post -
      */
     public void removeZone(String id){
-        for (Zone zone: zones){
+        for (Zone zone: this.zones){
             if (zone.getId() == id){
-                zones.remove(zone);
+                this.zones.remove(zone);
             }
         }
     }
@@ -66,7 +66,7 @@ public class Parking{
      * @post -
      */
     public boolean getSensorState(int id){
-        return sensors.get(id).getState();
+        return this.sensors.get(id).getState();
     }
 
     /*
@@ -74,9 +74,9 @@ public class Parking{
      * @post -
      */
     public void getParkingState(){
-        for (Zone zone : zones){
+        for (Zone zone : this.zones){
             System.out.println(zone.getId());
-            for (Sensor sensor : sensors){
+            for (Sensor sensor : this.sensors){
                 if (sensor.getObservers().contains(zone)){
                     System.out.println(sensor.getId()+" "+sensor.getState());
                 }
@@ -85,11 +85,11 @@ public class Parking{
     }
 
 
-    public ArrayList<Sensor> getSensors() {
-        return sensors;
+    public List<Sensor> getSensors() {
+        return this.sensors;
     }
 
-    public java.util.List<Zone> getZones() {
-        return zones;
+    public List<Zone> getZones() {
+        return this.zones;
     }
 }

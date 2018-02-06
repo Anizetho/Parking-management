@@ -31,7 +31,7 @@ public class Program {
 					my_parking.getSensors().get(Integer.parseInt(parts[1])-1).switchState();
 					break;
 				case sensor:
-					System.out.println(my_parking.getSensorState(Integer.parseInt(parts[1])));
+					System.out.println(my_parking.getSensorState(Integer.parseInt(parts[1])-1));
 					break;
 				case free:
 					for (Zone zone : my_parking.getZones()){
