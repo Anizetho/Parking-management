@@ -14,7 +14,7 @@ public class Program {
 		show, change, sensor, free
 	}
 
-	public static Parking my_parking = new Parking();
+	public static Parking myParking = new Parking();
 
 	public static void simulator() {
 		System.out.print("ParkingCMD > ");
@@ -25,16 +25,16 @@ public class Program {
 			Cmd cmd = Cmd.valueOf(parts[0]);
 			switch (cmd){
 				case show:
-					my_parking.getParkingState();
+					myParking.getParkingState();
 					break;
 				case change:
-					my_parking.getSensors().get(Integer.parseInt(parts[1])-1).switchState();
+					myParking.getSensors().get(Integer.parseInt(parts[1])-1).switchState();
 					break;
 				case sensor:
-					System.out.println(my_parking.getSensorState(Integer.parseInt(parts[1])-1));
+					System.out.println(myParking.getSensorState(Integer.parseInt(parts[1])-1));
 					break;
 				case free:
-					for (Zone zone : my_parking.getZones()){
+					for (Zone zone : myParking.getZones()){
 						System.out.println(zone.getId()+" "+zone.getFreeSpace());
 					}
 
@@ -45,7 +45,7 @@ public class Program {
 		}
 	}
 
-	public static HashMap<String,List<Integer>> json_to_hash_map(String filename){
+	public static HashMap<String,List<Integer>> jsonToHashMap(String filename){
 		try {
 			InputStream input = new FileInputStream(filename);
 			try {
@@ -62,7 +62,7 @@ public class Program {
 	}
 
 	public static Parking init(){
-		HashMap<String,List<Integer>> db = json_to_hash_map("src/Database.json");
+		HashMap<String,List<Integer>> db = jsonToHashMap("src/Database.json");
 		Parking park = new Parking();
 		for(HashMap.Entry<String, List<Integer>> entry : db.entrySet()) {
 			park.addZone(entry.getKey());
@@ -74,7 +74,7 @@ public class Program {
 	}
 
 	public static void main(String [] args) {
-		my_parking = init();
+		myParking = init();
 		while(true) {
 		    simulator();
 		}
