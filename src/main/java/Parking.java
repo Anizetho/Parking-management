@@ -7,7 +7,6 @@ public class Parking {
     private List<Zone> zones = new ArrayList<Zone>();
 
     public Parking() {
-
     }
 
     public boolean addSensor(String zoneToAdd) {
