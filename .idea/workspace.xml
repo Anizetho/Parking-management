@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a6982147-2bf6-4ee6-9c72-6170c02f93af" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Parking.java" afterPath="$PROJECT_DIR$/src/main/java/Parking.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Sensor.java" afterPath="$PROJECT_DIR$/src/main/java/Sensor.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -52,8 +51,8 @@
       <file leaf-file-name="Sensor.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Sensor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+            <state relative-caret-position="1335">
+              <caret line="89" column="7" lean-forward="true" selection-start-line="89" selection-start-column="7" selection-end-line="89" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1580#1581#0" expanded="true" />
@@ -178,8 +177,8 @@
         <option value="$PROJECT_DIR$/src/main/java/Observable.java" />
         <option value="$PROJECT_DIR$/src/main/java/SensorTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Zone.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Sensor.java" />
         <option value="$PROJECT_DIR$/src/main/java/Parking.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Sensor.java" />
       </list>
     </option>
   </component>
@@ -473,7 +472,7 @@
       <workItem from="1517822669277" duration="142000" />
       <workItem from="1517822909999" duration="16087000" />
       <workItem from="1517923578172" duration="2435000" />
-      <workItem from="1517926652356" duration="9354000" />
+      <workItem from="1517926652356" duration="9536000" />
     </task>
     <servers />
   </component>
@@ -510,7 +509,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41013000" />
+    <option name="totallyTimeSpent" value="41195000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1350" y="279" width="1132" height="1133" extended-state="0" />
@@ -1082,8 +1081,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Sensor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+        <state relative-caret-position="1335">
+          <caret line="89" column="7" lean-forward="true" selection-start-line="89" selection-start-column="7" selection-end-line="89" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1580#1581#0" expanded="true" />

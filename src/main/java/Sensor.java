@@ -38,7 +38,7 @@ public class Sensor extends Observable {
      *Add observer into a Observable object.
      *@param o is the observer.
      */
-    final public void addObserver(final Observer o) {
+    public final void addObserver(final Observer o) {
         this.observers.add(o);
         this.notifyObservers();
     }
@@ -47,7 +47,7 @@ public class Sensor extends Observable {
      *remove observer into a Observable object.
      *@param o is the observer.
      */
-    final public void removeObserver(final Observer o) {
+    public final void removeObserver(final Observer o) {
         this.observers.remove(o);
         o.update(false);
     }
@@ -55,7 +55,7 @@ public class Sensor extends Observable {
     /**
      *Notify observer throw update function.
      */
-    final public void notifyObservers() {
+    public final void notifyObservers() {
         for (int i = 0; i < observers.size(); i++) {
             this.observers.get(i).update(this.state);
         }
@@ -65,7 +65,7 @@ public class Sensor extends Observable {
      * Accessor of the state variable.
      * @return the current state of the sensor.
      */
-    final public boolean getState() {
+    public final boolean getState() {
         return this.state;
     }
 
@@ -73,7 +73,7 @@ public class Sensor extends Observable {
      * Accessor of the id variable.
      * @return the identifier of the sensor.
      */
-    final public int getId() {
+    public final int getId() {
         return this.id;
     }
 
@@ -81,14 +81,14 @@ public class Sensor extends Observable {
      * Accessor of the observers variable.
      * @return all of the observers of the sensor.
      */
-    final public List<Observer> getObservers() {
+    public final List<Observer> getObservers() {
         return this.observers;
     }
     /**
      * method that changes the state of the sensor.
      * and also warns the observer.
      */
-    final public void switchState() {
+    public final void switchState() {
         this.state = !this.state;
         this.notifyObservers();
     }
