@@ -3,34 +3,45 @@
  *Use to get freeSpace into the area.
  */
 public class Zone extends Observer {
-    public String id;
+    /**
+     *id is identifier of this zone.
+     */
+    private String id;
+    /**
+     *freeSpace reference the number of free space in this zone.
+     */
     private int freeSpaces;
 
-    public Zone(String id) {
-        this.id = id;
+    /**
+     *Constructor of Zone Class.
+     * @param givenId is the identifier.
+     */
+    public Zone(String givenId) {
+        this.id = givenId;
     }
 
     /**
      *Design Pattern Method.
+     * @param sensorState is the state from the notifyObservers method.
      */
     public void update(boolean sensorState) {
         if (!sensorState) {
             this.freeSpaces -= 1;
-        }
-        else {
-            this.freeSpaces +=1;
+        } else {
+            this.freeSpaces += 1;
         }
     }
-
     /**
-     *Method to access to the data.
+     *Accessor to the number of free space in this zone.
      */
-    public int getFreeSpace(){
+    public int getFreeSpace() {
         return this.freeSpaces;
     }
 
-
-    public String getId(){
+    /**
+     *Accessor to the identifier of this zone.
+     */
+    public String getId() {
         return this.id;
     }
 }
