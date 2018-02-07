@@ -2,10 +2,17 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ *SensorTest is the Class used to test the method of the Sensor Class.
+ *only the observers design pattern methods are tested.
+ */
 class SensorTest {
     private Sensor sensor = new Sensor();
     private Zone zone = new Zone("Test");
 
+    /**
+     *addObserver method test
+     */
     @Test
     void addObserver() {
         List<Observer> listObserver = sensor.getObservers();
@@ -21,6 +28,9 @@ class SensorTest {
     }
 
 
+    /**
+     *removeObserver method test
+     */
     @Test
     void removeObserver() {
     List<Observer> listObserver = sensor.getObservers();
@@ -35,7 +45,9 @@ class SensorTest {
     assertEquals(false, sensor.getObservers().contains(zone));
 
 }
-
+    /**
+     *notifyObserver method test
+     */
     @Test
     void notifyObservers() {
         assertEquals(false, false);
