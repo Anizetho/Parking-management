@@ -16,7 +16,7 @@ public class Zone extends Observer {
      *Constructor of Zone Class.
      * @param givenId is the identifier.
      */
-    public Zone(String givenId) {
+    public Zone(final String givenId) {
         this.id = givenId;
     }
 
@@ -24,7 +24,7 @@ public class Zone extends Observer {
      * Design Pattern Method.
      * @param sensorState is the state from the notifyObservers method.
      */
-    public void update(boolean sensorState) {
+    public final void update(final boolean sensorState) {
         if (!sensorState) {
             this.freeSpaces -= 1;
         } else {
@@ -35,7 +35,7 @@ public class Zone extends Observer {
      * Accessor of the freeSpaces variable.
      * @return the number of free space in this zone.
      */
-    public int getFreeSpace() {
+    public final int getFreeSpace() {
         return this.freeSpaces;
     }
 
@@ -43,7 +43,7 @@ public class Zone extends Observer {
      * Accessor of the id variable.
      * @return the identifier of this zone.
      */
-    public String getId() {
+    public final String getId() {
         return this.id;
     }
 }
