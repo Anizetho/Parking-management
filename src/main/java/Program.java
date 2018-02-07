@@ -12,75 +12,80 @@ import java.io.InputStream;
 public class Program {
     enum Cmd {
         show, change, sensor, free, exit
-	}
+    }
 
-	private static Parking myParking = new Parking();
+    private static Parking myParking = new Parking();
 
-	public static boolean simulator() {
-		System.out.print("ParkingCMD > ");
-		Scanner scanner = new Scanner(System.in);
-		String command = scanner.nextLine();
-		String[] parts = command.split(" ");
-		try {
-			Cmd cmd = Cmd.valueOf(parts[0]);
-			switch (cmd) {
-				case show:
+
+    public static boolean simulator() {
+        System.out.print("ParkingCMD > ");
+        Scanner scanner = new Scanner(System.in);
+        String command = scanner.nextLine();
+        String[] parts = command.split(" ");
+        try {
+            Cmd cmd = Cmd.valueOf(parts[0]);
+            int arg = Integer.parseInt(parts[1]) - 1;
+            switch (cmd) {
+                case show:
                     getMyParking().getParkingState();
-					break;
-				case change:
-                    getMyParking().getSensors().get(Integer.parseInt(parts[1]) - 1).switchState();
-					break;
-				case sensor:
-					System.out.println(getMyParking().getSensorState(Integer.parseInt(parts[1]) - 1));
-					break;
-				case free:
-					for (Zone zone : getMyParking().getZones()) {
-						System.out.println(zone.getId() + " " + zone.getFreeSpace());
-					}
-					break;
-				case exit:
-					return false;
+                    break;
+                case change:
+                    getMyParking().getSensors().get(arg).switchState();
+                    break;
+                case sensor:
+                    System.out.println(getMyParking().getSensorState(arg));
+                    break;
+                case free:
+                    for (Zone zone : getMyParking().getZones()) {
+                        System.out.println(zone.getId() + " " + zone.getFreeSpace());
+                    }
+                    break;
+                case exit:
+                    return false;
                 default:
                     break;
-			}
-		} catch(Exception e) {
-			System.out.println("no option");
-		}
-		return true;
-	}
+            }
+        } catch (Exception e) {
+            System.out.println("bad option");
+        }
+        return true;
+    }
 
-	public static HashMap<String, List<Integer>> jsonToHashMap(String filename) {
-		try {
-			InputStream input = new FileInputStream(filename);
-			try {
-				return  new ObjectMapper().readValue(input, HashMap.class);
-			} catch(IOException b) {
-				System.out.println("Json to hash map conversion Failed");
-			}
-		} catch(FileNotFoundException e) {
-			System.out.println("Json File Not Found");
-		}
-		return new HashMap<String, List<Integer>>();
-	}
+    public static HashMap<String, List<Integer>> jsonToHashMap(final String filename) {
+        try {
+            InputStream input = new FileInputStream(filename);
+            try {
+                return new ObjectMapper().readValue(input, HashMap.class);
+            } catch (IOException b) {
+                System.out.println("Json to hash map conversion Failed");
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Json File Not Found");
+        }
+        return new HashMap<String, List<Integer>>();
+    }
 
-	public static Parking init() {
-		HashMap<String, List<Integer>> db = jsonToHashMap("src/Database.json");
-		Parking park = new Parking();
-		for (HashMap.Entry<String, List<Integer>> entry : db.entrySet()) {
-			park.addZone(entry.getKey());
-			for (int sensor: entry.getValue()) {
-			  park.addSensor(entry.getKey());
-			}
-		}
-	    return park;
-	}
+    public final static Parking init() {
+        HashMap<String, List<Integer>> db = jsonToHashMap("src/Database.json");
+        Parking park = new Parking();
+        for (HashMap.Entry<String, List<Integer>> entry : db.entrySet()) {
+            park.addZone(entry.getKey());
+            for (int sensor : entry.getValue()) {
+                park.addSensor(entry.getKey());
+            }
+        }
+        return park;
+    }
 
     public static Parking getMyParking() {
         return myParking;
     }
 
-    public static void main(String [] args) {
-		myParking = init();
-		while (simulator()) {}
-	}
+    public static void main(final String[] args) {
+        myParking = init();
+        boolean loop = true;
+        while (loop) {
+            loop = simulator();
+        }
+    }
 }
