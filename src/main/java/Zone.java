@@ -32,14 +32,16 @@ public class Zone extends Observer {
         }
     }
     /**
-     *Accessor to the number of free space in this zone.
+     * Accessor of the freeSpaces variable.
+     * @return the number of free space in this zone.
      */
     public int getFreeSpace() {
         return this.freeSpaces;
     }
 
     /**
-     *Accessor to the identifier of this zone.
+     *Accessor of the id variable.
+     * @return the identifier of this zone.
      */
     public String getId() {
         return this.id;
