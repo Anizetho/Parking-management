@@ -44,7 +44,7 @@ public class Sensor extends Observable {
     }
 
     /**
-     *remove observer into a Observable object.
+     *remove observer from a Observable object.
      *@param o is the observer.
      */
     public final void removeObserver(final Observer o) {
