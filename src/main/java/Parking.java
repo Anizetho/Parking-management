@@ -21,7 +21,6 @@ public class Parking {
      */
     public Parking() {
     }
-    
     /**
      *Add sensor into the car park.
      *@param zoneToAdd is the zone where we put the sensor.
@@ -40,6 +39,7 @@ public class Parking {
     }
     /**
      *Remove sensor into the car park.
+     * @param id is identifier of the sensor to be deleted
      */
     public final void removeSensor(final int id) {
         for (Sensor sensor : this.sensors) {
@@ -57,6 +57,7 @@ public class Parking {
     }
     /**
      *Remove zone from the car park.
+     * @param id is identifier of the zone to be deleted
      */
     public final void removeZone(final String id) {
         for (Zone zone: this.zones) {
@@ -67,9 +68,9 @@ public class Parking {
     }
 
     /**
-     *Used to know the state of a specific sensor
-     *@param id is the identifier of the sensor
-     *@return is the state of the sensor
+     *Used to know the state of a specific sensor.
+     *@param id is the identifier of the sensor.
+     *@return is the state of the sensor.
      */
     public final boolean getSensorState(final int id) {
 
