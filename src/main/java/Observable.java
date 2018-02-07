@@ -4,14 +4,14 @@
 public abstract class Observable {
     /**
      *Add observer into a Observable object.
-     *@param obs is the observer.
+     *@param o is the observer.
      */
-    public abstract void addObserver(Observer obs);
+    public abstract void addObserver(Observer o);
     /**
      *Remove observer from a Observable object.
-     *@param obs is the observer.
+     *@param o is the observer.
      */
-    public abstract void removeObserver(Observer obs);
+    public abstract void removeObserver(Observer o);
     /**
      *Notify observer throw update function.
      */

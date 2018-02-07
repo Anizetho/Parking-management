@@ -1,10 +1,10 @@
-import org.junit.jupiter.api.Test;
 import java.util.List;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SensorTest {
-    Sensor sensor = new Sensor();
-    Zone zone = new Zone("Test");
+    private Sensor sensor = new Sensor();
+    private Zone zone = new Zone("Test");
 
     @Test
     void addObserver() {
@@ -13,7 +13,7 @@ class SensorTest {
 
         sensor.addObserver(zone);
 
-        // Check if the size of observers list is incremented when addObserver is used
+        // Check if the size of observers list is incremented
         assertEquals(initialSize + 1, sensor.getObservers().size());
 
         // Check if added observer is containing in observers list
@@ -22,23 +22,22 @@ class SensorTest {
 
 
     @Test
-    void removeObserver(){
-        List<Observer> listObserver = sensor.getObservers();
+    void removeObserver() {
+    List<Observer> listObserver = sensor.getObservers();
         sensor.addObserver(zone);
-        int initialSize = listObserver.size();
+    int initialSize = listObserver.size();
 
         sensor.removeObserver(zone);
-        // Check if the size of observers list is decremented when removeObserver is used
-        assertEquals(initialSize - 1, sensor.getObservers().size());
+    // Check if the size of observers list is decremented
+    assertEquals(initialSize - 1, sensor.getObservers().size());
 
-        // Check if added observer is containing in observers list
-        assertEquals(false, sensor.getObservers().contains(zone));
+    // Check if added observer is containing in observers list
+    assertEquals(false, sensor.getObservers().contains(zone));
 
-    }
+}
 
     @Test
     void notifyObservers() {
         assertEquals(false, false);
     }
-
 }
