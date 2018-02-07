@@ -10,21 +10,32 @@ import java.io.InputStream;
 
 
 public class Program {
+    /**
+     *Cmd is a enum which contain all of the available command.
+     */
     enum Cmd {
         show, change, sensor, free, exit
     }
-
+    /**
+     *myParking is the car park managed by the program.
+     */
     private static Parking myParking = new Parking();
 
 
-    public static boolean simulator() {
+    /**
+     *method used to simulate parking activity.
+     */
+    private static boolean simulator() {
         System.out.print("ParkingCMD > ");
         Scanner scanner = new Scanner(System.in);
         String command = scanner.nextLine();
         String[] parts = command.split(" ");
         try {
             Cmd cmd = Cmd.valueOf(parts[0]);
-            int arg = Integer.parseInt(parts[1]) - 1;
+            int arg = 0;
+            if (parts.length > 1) {
+                arg = Integer.parseInt(parts[1]) - 1;
+            }
             switch (cmd) {
                 case show:
                     getMyParking().getParkingState();
@@ -51,7 +62,12 @@ public class Program {
         return true;
     }
 
-    public static HashMap<String, List<Integer>> jsonToHashMap(final String filename) {
+    /**
+     *method used to parse the database.
+     * the database is store into a json file
+     * and converted into a Hash map.
+     */
+    private static HashMap<String, List<Integer>> jsonToHashMap(final String filename) {
         try {
             InputStream input = new FileInputStream(filename);
             try {
@@ -65,7 +81,10 @@ public class Program {
         return new HashMap<String, List<Integer>>();
     }
 
-    public final static Parking init() {
+    /**
+     *method used to create the different objects present into the car park.
+     */
+    private static Parking init() {
         HashMap<String, List<Integer>> db = jsonToHashMap("src/Database.json");
         Parking park = new Parking();
         for (HashMap.Entry<String, List<Integer>> entry : db.entrySet()) {
@@ -77,10 +96,18 @@ public class Program {
         return park;
     }
 
-    public static Parking getMyParking() {
+    /**
+     * Accessor of the myParking variable.
+     * @return the car park object.
+     */
+    private static Parking getMyParking() {
         return myParking;
     }
 
+    /**
+     *Main program.
+     *(Super Loop model)
+     */
     public static void main(final String[] args) {
         myParking = init();
         boolean loop = true;
