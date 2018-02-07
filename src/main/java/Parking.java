@@ -12,7 +12,7 @@ public class Parking {
     public boolean addSensor(String zoneToAdd) {
         Sensor sensor = new Sensor();
         for (Zone zone : this.zones) {
-            if (zone.id == zoneToAdd) {
+            if (zone.getId() == zoneToAdd) {
                 sensor.addObserver(zone);
                 this.sensors.add(sensor);
                 return true;

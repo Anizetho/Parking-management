@@ -1,7 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ *Sensor is Observable by a Zone.
+ *Use to know if there is a car.
+ */
 public class Sensor extends Observable {
 
     /**
@@ -35,7 +38,7 @@ public class Sensor extends Observable {
      *Add observer into a Observable object.
      *@param o is the observer.
      */
-    public void addObserver(Observer o) {
+    final public void addObserver(final Observer o) {
         this.observers.add(o);
         this.notifyObservers();
     }
@@ -44,7 +47,7 @@ public class Sensor extends Observable {
      *remove observer into a Observable object.
      *@param o is the observer.
      */
-    public void removeObserver(Observer o) {
+    final public void removeObserver(final Observer o) {
         this.observers.remove(o);
         o.update(false);
     }
@@ -52,7 +55,7 @@ public class Sensor extends Observable {
     /**
      *Notify observer throw update function.
      */
-    public void notifyObservers() {
+    final public void notifyObservers() {
         for (int i = 0; i < observers.size(); i++) {
             this.observers.get(i).update(this.state);
         }
@@ -62,7 +65,7 @@ public class Sensor extends Observable {
      * Accessor of the state variable.
      * @return the current state of the sensor.
      */
-    public boolean getState() {
+    final public boolean getState() {
         return this.state;
     }
 
@@ -70,7 +73,7 @@ public class Sensor extends Observable {
      * Accessor of the id variable.
      * @return the identifier of the sensor.
      */
-    public int getId() {
+    final public int getId() {
         return this.id;
     }
 
@@ -78,14 +81,14 @@ public class Sensor extends Observable {
      * Accessor of the observers variable.
      * @return all of the observers of the sensor.
      */
-    public List<Observer> getObservers() {
+    final public List<Observer> getObservers() {
         return this.observers;
     }
     /**
      * method that changes the state of the sensor.
      * and also warns the observer.
      */
-    public void switchState() {
+    final public void switchState() {
         this.state = !this.state;
         this.notifyObservers();
     }
