@@ -7,11 +7,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  *only the observers design pattern methods are tested.
  */
 class SensorTest {
+    /**
+     * sensor is a random Sensor that will be tested.
+     */
     private Sensor sensor = new Sensor();
+    /**
+     * zone is a random Zone.
+     * needed to test the design pattern.
+     */
     private Zone zone = new Zone("Test");
 
     /**
-     *addObserver method test
+     *addObserver method test.
      */
     @Test
     void addObserver() {
@@ -29,7 +36,7 @@ class SensorTest {
 
 
     /**
-     *removeObserver method test
+     *removeObserver method test.
      */
     @Test
     void removeObserver() {
@@ -46,7 +53,7 @@ class SensorTest {
 
 }
     /**
-     *notifyObserver method test
+     *notifyObserver method test.
      */
     @Test
     void notifyObservers() {
