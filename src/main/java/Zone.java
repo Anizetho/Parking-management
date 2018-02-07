@@ -21,7 +21,7 @@ public class Zone extends Observer {
     }
 
     /**
-     *Design Pattern Method.
+     * Design Pattern Method.
      * @param sensorState is the state from the notifyObservers method.
      */
     public void update(boolean sensorState) {
@@ -40,7 +40,7 @@ public class Zone extends Observer {
     }
 
     /**
-     *Accessor of the id variable.
+     * Accessor of the id variable.
      * @return the identifier of this zone.
      */
     public String getId() {
