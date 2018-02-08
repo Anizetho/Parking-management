@@ -1,4 +1,76 @@
 -------------------------------------------------------------------------------
 Test set: SensorTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in SensorTest
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.076 sec <<< FAILURE! - in SensorTest
+notifyObservers  Time elapsed: 0.029 sec  <<< ERROR!
+java.lang.VerifyError: 
+Expecting a stackmap frame at branch target 60
+Exception Details:
+  Location:
+    Sensor.switchState()V @36: ifne
+  Reason:
+    Expected stackmap frame at this location.
+  Bytecode:
+    0x0000000: b800 5f4c 033d 11ff ff3e 2b10 1f04 5412
+    0x0000010: 1211 005c b800 182a 2ab4 0021 1100 5c3d
+    0x0000020: 1100 003e 9a00 1812 121c 1d04 b800 4811
+    0x0000030: ffff 3e04 2b10 2004 54a7 0026 1d9c 000b
+    0x0000040: 2b10 2104 54a7 0014 1212 1c1d 03b8 0048
+    0x0000050: 11ff ff3e 2b10 2204 5403 2b10 2304 54b5
+    0x0000060: 0021 2b10 2404 5412 1211 005d b800 182a
+    0x0000070: b600 342b 1025 0454 1212 1100 5eb8 0018
+    0x0000080: 2b10 2604 54b1                         
+  Stackmap Table:
+    full_frame(@89,{Object[#2],Object[#97]},{Object[#2]})
+    full_frame(@95,{Object[#2],Object[#97]},{Object[#2],Integer})
+
+	at SensorTest.<init>(SensorTest.java:13)
+
+removeObserver  Time elapsed: 0 sec  <<< ERROR!
+java.lang.VerifyError: 
+Expecting a stackmap frame at branch target 60
+Exception Details:
+  Location:
+    Sensor.switchState()V @36: ifne
+  Reason:
+    Expected stackmap frame at this location.
+  Bytecode:
+    0x0000000: b800 5f4c 033d 11ff ff3e 2b10 1f04 5412
+    0x0000010: 1211 005c b800 182a 2ab4 0021 1100 5c3d
+    0x0000020: 1100 003e 9a00 1812 121c 1d04 b800 4811
+    0x0000030: ffff 3e04 2b10 2004 54a7 0026 1d9c 000b
+    0x0000040: 2b10 2104 54a7 0014 1212 1c1d 03b8 0048
+    0x0000050: 11ff ff3e 2b10 2204 5403 2b10 2304 54b5
+    0x0000060: 0021 2b10 2404 5412 1211 005d b800 182a
+    0x0000070: b600 342b 1025 0454 1212 1100 5eb8 0018
+    0x0000080: 2b10 2604 54b1                         
+  Stackmap Table:
+    full_frame(@89,{Object[#2],Object[#97]},{Object[#2]})
+    full_frame(@95,{Object[#2],Object[#97]},{Object[#2],Integer})
+
+	at SensorTest.<init>(SensorTest.java:13)
+
+addObserver  Time elapsed: 0 sec  <<< ERROR!
+java.lang.VerifyError: 
+Expecting a stackmap frame at branch target 60
+Exception Details:
+  Location:
+    Sensor.switchState()V @36: ifne
+  Reason:
+    Expected stackmap frame at this location.
+  Bytecode:
+    0x0000000: b800 5f4c 033d 11ff ff3e 2b10 1f04 5412
+    0x0000010: 1211 005c b800 182a 2ab4 0021 1100 5c3d
+    0x0000020: 1100 003e 9a00 1812 121c 1d04 b800 4811
+    0x0000030: ffff 3e04 2b10 2004 54a7 0026 1d9c 000b
+    0x0000040: 2b10 2104 54a7 0014 1212 1c1d 03b8 0048
+    0x0000050: 11ff ff3e 2b10 2204 5403 2b10 2304 54b5
+    0x0000060: 0021 2b10 2404 5412 1211 005d b800 182a
+    0x0000070: b600 342b 1025 0454 1212 1100 5eb8 0018
+    0x0000080: 2b10 2604 54b1                         
+  Stackmap Table:
+    full_frame(@89,{Object[#2],Object[#97]},{Object[#2]})
+    full_frame(@95,{Object[#2],Object[#97]},{Object[#2],Integer})
+
+	at SensorTest.<init>(SensorTest.java:13)
+
